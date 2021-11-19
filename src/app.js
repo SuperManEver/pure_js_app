@@ -1,3 +1,8 @@
+import { add } from "./utils.js";
+import ListItem from "./list-item/index.js";
+
+const VALUES = ["ONE", "TWO", "THREE"];
+
 document.addEventListener("DOMContentLoaded", function () {
   // Аналог $(document).ready(function(){
   // Если должен быть найден один элемент
@@ -17,5 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
   //     }
   //   );
 
-  console.log("TEST");
+  const root = document.querySelector("#root");
+
+  if (!root) return;
+
+  VALUES.forEach((val) => {
+    root.appendChild(ListItem({ name: val }));
+  });
 });

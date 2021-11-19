@@ -1,0 +1,11 @@
+body {
+  background-color: whitesmoke;
+}
+
+.container {
+  padding: 1.6rem;
+  width: 80%;
+  height: 90vh;
+  margin: 0 auto;
+  background-color: white;
+}
