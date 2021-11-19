@@ -4,8 +4,14 @@
   "main": "index.js",
   "author": "Nik Luparev",
   "license": "MIT",
+  "scripts": {
+    "dev": "yarn parcel src/index.html"
+  },
   "volta": {
     "node": "14.18.1",
     "yarn": "1.22.17"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.1"
   }
 }
