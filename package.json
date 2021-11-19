@@ -1,0 +1,11 @@
+{
+  "name": "vizibl",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Nik Luparev",
+  "license": "MIT",
+  "volta": {
+    "node": "14.18.1",
+    "yarn": "1.22.17"
+  }
+}
