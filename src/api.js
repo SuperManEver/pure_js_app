@@ -1,45 +1,4 @@
-const LANGUAGES = [
-  {
-    name: 'Rust',
-    description:
-      'A language empowering everyone to build reliable and efficient software.',
-  },
-  {
-    name: 'Rust',
-    description:
-      'A language empowering everyone to build reliable and efficient software.',
-  },
-  {
-    name: 'Rust',
-    description:
-      'A language empowering everyone to build reliable and efficient software.',
-  },
-  {
-    name: 'Rust',
-    description:
-      'A language empowering everyone to build reliable and efficient software.',
-  },
-  {
-    name: 'Rust',
-    description:
-      'A language empowering everyone to build reliable and efficient software.',
-  },
-  {
-    name: 'Rust',
-    description:
-      'A language empowering everyone to build reliable and efficient software.',
-  },
-  {
-    name: 'Rust',
-    description:
-      'A language empowering everyone to build reliable and efficient software.',
-  },
-  {
-    name: 'Rust',
-    description:
-      'A language empowering everyone to build reliable and efficient software.',
-  },
-]
+const URL = 'https://rickandmortyapi.com/api/character'
 
 function getDelay() {
   const MIN_NUMBER = 300
@@ -48,8 +7,29 @@ function getDelay() {
   return Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER
 }
 
-export function loadItem() {
+export async function getAllCharacters() {
+  const response = await fetch(URL)
+  const data = await response.json()
+
+  console.log(data)
+
   return new Promise((resolve) => {
-    setTimeout(() => resolve(LANGUAGES), getDelay())
+    setTimeout(() => resolve([]), getDelay())
   })
+}
+
+export function charactersFetcher() {
+  async function getInitial() {
+    const response = await fetch(URL)
+    const { info, results } = await response.json()
+
+    return results
+  }
+
+  function getMore() {}
+
+  return {
+    getInitial,
+    getMore,
+  }
 }

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "yarn parcel src/index.html",
-    "lint": "yarn lint --config ./.eslintrc.json"
+    "lint": "yarn eslint --config .eslintrc.json"
   },
   "volta": {
     "node": "14.18.1",

@@ -1,10 +1,7 @@
-import { loadItem } from './api'
-import { add } from './utils.js'
+import { charactersFetcher } from './api'
 
 // components
 import ListItem from './list-item/index.js'
-
-const VALUES = ['ONE', 'TWO', 'THREE']
 
 let toggleMore = null
 
@@ -12,20 +9,28 @@ function handleLoadMore() {
   console.log('load more')
 }
 
-function init() {
+function renderList(characters) {
   const root = document.querySelector('#root')
 
+  if (!root) return
+
+  characters.forEach((character) => {
+    root.appendChild(ListItem(character))
+  })
+}
+
+async function init() {
   toggleMore = document.querySelector('.load-more')
 
-  if (!root) return
+  const fetcher = charactersFetcher()
 
   if (toggleMore) {
     toggleMore.addEventListener('click', handleLoadMore)
   }
 
-  VALUES.forEach((val) => {
-    root.appendChild(ListItem({ name: val }))
-  })
+  const characters = await fetcher.getInitial()
+
+  renderList(characters)
 }
 
 function cleanUp() {
