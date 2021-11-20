@@ -11,8 +11,6 @@ export function createElement(type, props, ...children) {
 }
 
 function createTextElement(text) {
-  console.log('createTextElement', text)
-
   return {
     type: 'TEXT_ELEMENT',
     props: {
@@ -23,8 +21,6 @@ function createTextElement(text) {
 }
 
 export function render(element, container) {
-  console.log(element)
-
   const dom =
     element.type == 'TEXT_ELEMENT'
       ? document.createTextNode(element.props.nodeValue)
@@ -35,7 +31,14 @@ export function render(element, container) {
   Object.keys(element.props || {})
     .filter(isProperty)
     .forEach((name) => {
-      dom[name] = element.props[name]
+      if (name === 'class') {
+        /**
+         *  special case for adding styles to element using css's classes
+         */
+        dom.classList.add(element.props[name])
+      } else {
+        dom[name] = element.props[name]
+      }
     })
 
   if (element.props) {

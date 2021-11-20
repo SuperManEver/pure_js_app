@@ -2,7 +2,7 @@ import { createElement } from '../utils/ui-builder'
 
 import * as css from './styles.module.css'
 
-function ListItem({ name, image, status, species }) {
+function ListItem({ name, status, species }) {
   const element = createElement(
     'section',
     { class: css.root },
