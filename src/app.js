@@ -1,5 +1,5 @@
 import { charactersFetcher } from './utils/api'
-import { render, createElement } from './utils/didact'
+import { render, createElement } from './utils/ui-builder'
 
 // components
 import ListItem from './list-item/index.js'

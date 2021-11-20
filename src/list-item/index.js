@@ -1,24 +1,6 @@
-import { createElement } from '../utils/didact'
+import { createElement } from '../utils/ui-builder'
 
 import * as css from './styles.module.css'
-
-function _ListItem({ name, image, status, species }) {
-  const container = document.createElement('div')
-
-  container.className = css.root
-
-  /*
-    section
-      image 
-      div
-        h3
-        p
-  */
-
-  container.appendChild(document.createTextNode(name))
-
-  return container
-}
 
 function ListItem({ name, image, status, species }) {
   const element = createElement(
