@@ -2,7 +2,7 @@ import { charactersFetcher } from './utils/api'
 import { render, createElement } from './utils/ui-builder'
 
 // components
-import ListItem from './list-item/index.js'
+import ListItem from './components/list-item/index.js'
 
 let toggleMore = null
 

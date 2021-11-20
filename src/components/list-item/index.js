@@ -1,4 +1,6 @@
-import { createElement } from '../utils/ui-builder'
+import { createElement } from '../../utils/ui-builder'
+
+import Label from '../label'
 
 import * as css from './styles.module.css'
 
@@ -8,9 +10,10 @@ function ListItem({ name, status, species }) {
     { class: css.root },
     createElement(
       'div',
-      null,
+      { class: css.content },
       createElement('h3', null, name),
-      createElement('p', null, species)
+      createElement('p', null, `species: ${species}`),
+      Label({ text: status })
     )
   )
 }
