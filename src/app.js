@@ -18,7 +18,7 @@ async function init() {
 
   if (!root || !toggleMore) return
 
-  // @todo: remove later
+  // @todo: fix later
   // toggleMore.addEventListener('click', handleLoadMore)
 
   const characters = await fetcher.getInitial()
