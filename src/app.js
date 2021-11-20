@@ -5,21 +5,22 @@ import { render, createElement } from './utils/ui-builder'
 import ListItem from './components/list-item/index.js'
 
 let toggleMore = null
+const fetcher = charactersFetcher()
 
 function handleLoadMore() {
   console.log('load more')
+
+  fetcher.getMore()
 }
 
 async function init() {
   const root = document.querySelector('#root')
   toggleMore = document.querySelector('.load-more')
 
-  const fetcher = charactersFetcher()
-
   if (!root || !toggleMore) return
 
   // @todo: fix later
-  // toggleMore.addEventListener('click', handleLoadMore)
+  toggleMore.addEventListener('click', handleLoadMore)
 
   const characters = await fetcher.getInitial()
 

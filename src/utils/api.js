@@ -19,14 +19,22 @@ export async function getAllCharacters() {
 }
 
 export function charactersFetcher() {
+  let state = null
+
   async function getInitial() {
     const response = await fetch(URL)
     const { info, results } = await response.json()
 
+    state = info
+
     return results
   }
 
-  function getMore() {}
+  function getMore() {
+    if (!state) return
+
+    console.log(state)
+  }
 
   return {
     getInitial,
