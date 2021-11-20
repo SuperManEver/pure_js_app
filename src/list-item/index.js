@@ -3,7 +3,7 @@ import { createElement } from '../utils/ui-builder'
 import * as css from './styles.module.css'
 
 function ListItem({ name, status, species }) {
-  const element = createElement(
+  return createElement(
     'section',
     { class: css.root },
     createElement(
@@ -13,8 +13,6 @@ function ListItem({ name, status, species }) {
       createElement('p', null, species)
     )
   )
-
-  return element
 }
 
 export default ListItem
