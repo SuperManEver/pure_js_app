@@ -18,19 +18,14 @@ async function init() {
 
   if (!root || !toggleMore) return
 
+  // @todo: remove later
   // toggleMore.addEventListener('click', handleLoadMore)
 
   const characters = await fetcher.getInitial()
 
-  const first = characters[0]
+  const container = createElement('div', null, ...characters.map(ListItem))
 
-  // const container = createElement('div', null, characters.map(ListItem))
-
-  const item = ListItem(first)
-
-  console.log(item)
-
-  render(item, root)
+  render(container, root)
 }
 
 function cleanUp() {
