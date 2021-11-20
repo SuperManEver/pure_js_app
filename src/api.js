@@ -1,55 +1,55 @@
 const LANGUAGES = [
   {
-    name: "Rust",
+    name: 'Rust',
     description:
-      "A language empowering everyone to build reliable and efficient software.",
+      'A language empowering everyone to build reliable and efficient software.',
   },
   {
-    name: "Rust",
+    name: 'Rust',
     description:
-      "A language empowering everyone to build reliable and efficient software.",
+      'A language empowering everyone to build reliable and efficient software.',
   },
   {
-    name: "Rust",
+    name: 'Rust',
     description:
-      "A language empowering everyone to build reliable and efficient software.",
+      'A language empowering everyone to build reliable and efficient software.',
   },
   {
-    name: "Rust",
+    name: 'Rust',
     description:
-      "A language empowering everyone to build reliable and efficient software.",
+      'A language empowering everyone to build reliable and efficient software.',
   },
   {
-    name: "Rust",
+    name: 'Rust',
     description:
-      "A language empowering everyone to build reliable and efficient software.",
+      'A language empowering everyone to build reliable and efficient software.',
   },
   {
-    name: "Rust",
+    name: 'Rust',
     description:
-      "A language empowering everyone to build reliable and efficient software.",
+      'A language empowering everyone to build reliable and efficient software.',
   },
   {
-    name: "Rust",
+    name: 'Rust',
     description:
-      "A language empowering everyone to build reliable and efficient software.",
+      'A language empowering everyone to build reliable and efficient software.',
   },
   {
-    name: "Rust",
+    name: 'Rust',
     description:
-      "A language empowering everyone to build reliable and efficient software.",
+      'A language empowering everyone to build reliable and efficient software.',
   },
-];
+]
 
 function getDelay() {
-  const MIN_NUMBER = 300;
-  const MAX_NUMBER = 600;
+  const MIN_NUMBER = 300
+  const MAX_NUMBER = 600
 
-  return Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER;
+  return Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER
 }
 
 export function loadItem() {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(LANGUAGES), getDelay());
-  });
+    setTimeout(() => resolve(LANGUAGES), getDelay())
+  })
 }

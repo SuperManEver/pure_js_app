@@ -1,36 +1,36 @@
-import { loadItem } from "./api";
-import { add } from "./utils.js";
+import { loadItem } from './api'
+import { add } from './utils.js'
 
 // components
-import ListItem from "./list-item/index.js";
+import ListItem from './list-item/index.js'
 
-const VALUES = ["ONE", "TWO", "THREE"];
+const VALUES = ['ONE', 'TWO', 'THREE']
 
-let toggleMore = null;
+let toggleMore = null
 
 function handleLoadMore() {
-  console.log("load more");
+  console.log('load more')
 }
 
 function init() {
-  const root = document.querySelector("#root");
+  const root = document.querySelector('#root')
 
-  toggleMore = document.querySelector(".load-more");
+  toggleMore = document.querySelector('.load-more')
 
-  if (!root) return;
+  if (!root) return
 
   if (toggleMore) {
-    toggleMore.addEventListener("click", handleLoadMore);
+    toggleMore.addEventListener('click', handleLoadMore)
   }
 
   VALUES.forEach((val) => {
-    root.appendChild(ListItem({ name: val }));
-  });
+    root.appendChild(ListItem({ name: val }))
+  })
 }
 
 function cleanUp() {
-  toggleMore.removeEventListener("click", handleLoadMore);
+  toggleMore.removeEventListener('click', handleLoadMore)
 }
 
-document.addEventListener("DOMContentLoaded", init);
-document.addEventListener("beforeunload", cleanUp);
+document.addEventListener('DOMContentLoaded', init)
+document.addEventListener('beforeunload', cleanUp)
