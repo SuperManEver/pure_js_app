@@ -5,13 +5,15 @@
   "author": "Nik Luparev",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn parcel src/index.html"
+    "dev": "yarn parcel src/index.html",
+    "lint": "yarn lint --config ./.eslintrc.json"
   },
   "volta": {
     "node": "14.18.1",
     "yarn": "1.22.17"
   },
   "devDependencies": {
+    "eslint": "^8.2.0",
     "parcel": "^2.0.1"
   }
 }
