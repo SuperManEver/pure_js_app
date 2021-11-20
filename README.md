@@ -5,4 +5,4 @@ yarn install
 yarn dev
 ```
 
-Go to [app](http://localhost:1234) in browser
+Then go to [app](http://localhost:1234) in browser
