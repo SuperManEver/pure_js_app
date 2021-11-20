@@ -1,13 +1,38 @@
-import * as css from "./styles.module.css";
+import { createElement } from '../utils/didact'
 
-function ListItem({ name }) {
-  const container = document.createElement("div");
+import * as css from './styles.module.css'
 
-  container.className = css.root;
+function _ListItem({ name, image, status, species }) {
+  const container = document.createElement('div')
 
-  container.appendChild(document.createTextNode(name));
+  container.className = css.root
 
-  return container;
+  /*
+    section
+      image 
+      div
+        h3
+        p
+  */
+
+  container.appendChild(document.createTextNode(name))
+
+  return container
 }
 
-export default ListItem;
+function ListItem({ name, image, status, species }) {
+  const element = createElement(
+    'section',
+    { class: css.root },
+    createElement(
+      'div',
+      null,
+      createElement('h3', null, name),
+      createElement('p', null, species)
+    )
+  )
+
+  return element
+}
+
+export default ListItem

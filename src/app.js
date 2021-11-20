@@ -1,4 +1,5 @@
-import { charactersFetcher } from './api'
+import { charactersFetcher } from './utils/api'
+import { render, createElement } from './utils/didact'
 
 // components
 import ListItem from './list-item/index.js'
@@ -9,28 +10,27 @@ function handleLoadMore() {
   console.log('load more')
 }
 
-function renderList(characters) {
-  const root = document.querySelector('#root')
-
-  if (!root) return
-
-  characters.forEach((character) => {
-    root.appendChild(ListItem(character))
-  })
-}
-
 async function init() {
+  const root = document.querySelector('#root')
   toggleMore = document.querySelector('.load-more')
 
   const fetcher = charactersFetcher()
 
-  if (toggleMore) {
-    toggleMore.addEventListener('click', handleLoadMore)
-  }
+  if (!root || !toggleMore) return
+
+  // toggleMore.addEventListener('click', handleLoadMore)
 
   const characters = await fetcher.getInitial()
 
-  renderList(characters)
+  const first = characters[0]
+
+  // const container = createElement('div', null, characters.map(ListItem))
+
+  const item = ListItem(first)
+
+  console.log(item)
+
+  render(item, root)
 }
 
 function cleanUp() {

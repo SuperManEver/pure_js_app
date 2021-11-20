@@ -31,7 +31,7 @@ dd {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -74,7 +74,6 @@ body {
 .container {
   padding: 1.6rem;
   width: 80%;
-  height: 90vh;
   margin: 2rem auto;
   background-color: white;
 }
