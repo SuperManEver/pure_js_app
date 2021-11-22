@@ -6,13 +6,14 @@ import ListItem from './components/list-item/index.js'
 
 let toggleMore = null
 const fetcher = charactersFetcher()
+let characters = []
 
 async function handleLoadMore() {
-  console.log('load more')
-
   const items = await fetcher.getMore()
 
-  console.log(items)
+  characters = [...characters, ...items]
+
+  renderView(characters)
 }
 
 function renderView(items) {
@@ -20,6 +21,7 @@ function renderView(items) {
 
   if (!root) return
 
+  root.replaceChildren()
   const container = createElement('div', null, ...items.map(ListItem))
 
   render(container, root)
@@ -33,7 +35,7 @@ async function init() {
   // @todo: fix later
   toggleMore.addEventListener('click', handleLoadMore)
 
-  const characters = await fetcher.getInitial()
+  characters = await fetcher.getInitial()
 
   renderView(characters)
 }
