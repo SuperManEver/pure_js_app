@@ -10,6 +10,12 @@ class App {
     this.fetcher = charactersFetcher()
   }
 
+  setItems(xs) {
+    this.items = xs
+
+    this.render()
+  }
+
   async init() {
     this.toggleMore = document.querySelector('.load-more')
     this.root = document.querySelector('#root')
@@ -18,9 +24,8 @@ class App {
       this.toggleMore.addEventListener('click', this.handleLoadMore.bind(this))
     }
 
-    this.items = await this.fetcher.getInitial()
-
-    this.render()
+    const items = await this.fetcher.getInitial()
+    this.setItems(items)
   }
 
   cleanUp() {
@@ -30,9 +35,7 @@ class App {
   async handleLoadMore() {
     const items = await this.fetcher.getMore()
 
-    this.items = [...this.items, ...items]
-
-    this.render()
+    this.setItems([...this.items, ...items])
   }
 
   render() {
