@@ -7,10 +7,12 @@ import ListItem from './components/list-item/index.js'
 let toggleMore = null
 const fetcher = charactersFetcher()
 
-function handleLoadMore() {
+async function handleLoadMore() {
   console.log('load more')
 
-  fetcher.getMore()
+  const items = await fetcher.getMore()
+
+  console.log(items)
 }
 
 function renderView(items) {

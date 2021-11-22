@@ -1,39 +1,30 @@
 const URL = 'https://rickandmortyapi.com/api/character'
 
-function getDelay() {
-  const MIN_NUMBER = 300
-  const MAX_NUMBER = 600
-
-  return Math.floor(Math.random() * MAX_NUMBER) + MIN_NUMBER
-}
-
-export async function getAllCharacters() {
-  const response = await fetch(URL)
-  const data = await response.json()
-
-  console.log(data)
-
-  return new Promise((resolve) => {
-    setTimeout(() => resolve([]), getDelay())
-  })
-}
-
 export function charactersFetcher() {
   let state = null
 
+  async function getRequest(url) {
+    const response = await fetch(url)
+    return response.json()
+  }
+
   async function getInitial() {
-    const response = await fetch(URL)
-    const { info, results } = await response.json()
+    const { info, results } = await getRequest(URL)
 
     state = info
 
     return results
   }
 
-  function getMore() {
+  async function getMore() {
     if (!state) return
 
-    console.log(state)
+    const { next } = state
+    const { info, results } = await getRequest(next)
+
+    state = info
+
+    return results
   }
 
   return {
