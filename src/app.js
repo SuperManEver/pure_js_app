@@ -30,10 +30,9 @@ function renderView(items) {
 async function init() {
   toggleMore = document.querySelector('.load-more')
 
-  if (!toggleMore) return
-
-  // @todo: fix later
-  toggleMore.addEventListener('click', handleLoadMore)
+  if (toggleMore) {
+    toggleMore.addEventListener('click', handleLoadMore)
+  }
 
   characters = await fetcher.getInitial()
 
