@@ -13,20 +13,27 @@ function handleLoadMore() {
   fetcher.getMore()
 }
 
-async function init() {
+function renderView(items) {
   const root = document.querySelector('#root')
+
+  if (!root) return
+
+  const container = createElement('div', null, ...items.map(ListItem))
+
+  render(container, root)
+}
+
+async function init() {
   toggleMore = document.querySelector('.load-more')
 
-  if (!root || !toggleMore) return
+  if (!toggleMore) return
 
   // @todo: fix later
   toggleMore.addEventListener('click', handleLoadMore)
 
   const characters = await fetcher.getInitial()
 
-  const container = createElement('div', null, ...characters.map(ListItem))
-
-  render(container, root)
+  renderView(characters)
 }
 
 function cleanUp() {
