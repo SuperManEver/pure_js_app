@@ -31,7 +31,6 @@ dd {
 
 /* Set core body defaults */
 body {
-  /* min-height: 100vh; */
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
@@ -46,12 +45,6 @@ ol[class] {
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
-img {
-  max-width: 100%;
-  display: block;
 }
 
 /* Natural flow and rhythm in articles by default */

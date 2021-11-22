@@ -29,14 +29,14 @@ class App {
     this.setItems(items)
   }
 
-  cleanUp() {
-    this.toggleMore.removeEventListener('click', this.handleLoadMore)
-  }
-
   async handleLoadMore() {
     const items = await this.fetcher.getMore()
 
     this.setItems([...this.items, ...items])
+  }
+
+  cleanUp() {
+    this.toggleMore.removeEventListener('click', this.handleLoadMore)
   }
 
   render() {
