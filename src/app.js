@@ -1,3 +1,4 @@
+// utils
 import { charactersFetcher } from './utils/api'
 import { render, createElement } from './utils/ui-builder'
 
