@@ -2,7 +2,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #06d6a0;
+  background-color: var(--label-color);
   padding: 0.2rem;
   width: fit-content;
   border-radius: 6px;

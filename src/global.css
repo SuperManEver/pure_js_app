@@ -60,8 +60,14 @@ select {
   font: inherit;
 }
 
+:root {
+  --label-color: #06d6a0;
+  --border-color: gainsboro;
+  --bg-color: whitesmoke;
+}
+
 body {
-  background-color: whitesmoke;
+  background-color: var(--bg-color);
 }
 
 .container {
